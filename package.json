@@ -4,8 +4,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "npm install && tsc",
-    "start": "node ./build/index.js",
+    "build": "npx tsc",
+    "start": "node build/index.js",
     "lint": "eslint .",
     "dev": "tsx --watch index.ts"
   },

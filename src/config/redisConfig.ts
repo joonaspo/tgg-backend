@@ -2,10 +2,13 @@ import { Redis } from 'ioredis'
 import { config } from './config.ts'
 
 const port = Number(config.REDIS_PORT)
-const host = config.REDIS_HOST
+
 const client = new Redis({
-  host: host || '127.0.0.1',
+  username: config.REDIS_USER,
+  host: config.REDIS_HOST || '127.0.0.1',
+  password: config.REDIS_PASSWORD,
   port: port || 6379,
+  tls: { rejectUnauthorized: true },
 })
 
 export default client
