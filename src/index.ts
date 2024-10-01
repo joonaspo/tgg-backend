@@ -1,6 +1,6 @@
-import app from './src/app.ts'
-import { config } from './src/config/config.ts'
-import { runAtInterval } from './src/jobs/fetchDataJob.ts'
+import app from './app.ts'
+import { config } from './config/config.ts'
+import { runAtInterval } from './jobs/fetchDataJob.ts'
 
 const port = config.PORT
 app.listen(port, async () => {
