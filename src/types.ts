@@ -22,6 +22,7 @@ export enum ObjectKeys {
   headphones = 'headphones',
   chestrigs = 'chestrigs',
   maps = 'maps',
+  updatedAt = 'updatedAt',
 }
 
 export interface DataObject {

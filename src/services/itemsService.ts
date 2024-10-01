@@ -1,12 +1,6 @@
-import client from '../config/redisConfig'
-import {
-  ChestRigObject,
-  ItemObject,
-  MapObject,
-  ObjectKeys,
-  RigTypes,
-} from '../types'
-import { randomIndexFromArray } from './helpers'
+import client from '../config/redisConfig.ts'
+import { ChestRigObject, ItemObject, MapObject, ObjectKeys } from '../types.ts'
+import { randomIndexFromArray } from './helpers.ts'
 
 export const getRandomMap = async () => {
   try {
@@ -38,7 +32,7 @@ export const getRandomChestrig = async () => {
   }
 }
 
-export const getRandomWeapon = async (key: ObjectKeys) => {
+export const getRandomStandardItem = async (key: ObjectKeys) => {
   try {
     const itemsData = await client.get(key)
     let itemsArray: ItemObject[] = []
@@ -49,5 +43,14 @@ export const getRandomWeapon = async (key: ObjectKeys) => {
     return randomItem
   } catch (error) {
     throw new Error(`Error getting a random ${key}: ${error}!`)
+  }
+}
+
+export const getUpdatedAtDate = async () => {
+  try {
+    const data = await client.get(ObjectKeys.updatedAt)
+    return data
+  } catch (error) {
+    throw new Error(`Error getting updated at -date: ${error}!`)
   }
 }

@@ -1,5 +1,5 @@
 import express from 'express'
-import itemsRouter from './routes/items'
+import itemsRouter from './routes/items.ts'
 import 'express-async-errors'
 const app = express()
 

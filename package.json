@@ -4,13 +4,16 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsx index.ts"
+    "build": "npm install && tsc",
+    "start": "node ./build/index.js",
+    "lint": "eslint .",
+    "dev": "tsx --watch index.ts"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "date-fns": "^4.1.0",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "express-async-errors": "^3.1.1",
@@ -18,13 +21,16 @@
     "ioredis": "^5.4.1"
   },
   "devDependencies": {
+    "@eslint/js": "^8.57.1",
     "@types/express": "^5.0.0",
     "@types/ioredis": "^4.28.10",
     "@types/node": "^22.7.4",
     "@types/redis": "^4.0.10",
-    "ts-node": "^10.9.2",
+    "eslint": "^8.57.1",
+    "globals": "^15.10.0",
     "tsx": "^4.19.1",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^7.18.0"
   }
 }
 
