@@ -1,4 +1,4 @@
-import { ChestRigObject, ItemObject, MapObject, RigTypes } from '../types.ts'
+import { ChestRigObject, ItemObject, MapObject, RigTypes } from '../types.js'
 
 export const randomIndexFromArray = (
   array: MapObject[] | ItemObject[] | ChestRigObject[]

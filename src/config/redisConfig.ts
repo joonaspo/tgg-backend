@@ -1,5 +1,5 @@
 import { Redis } from 'ioredis'
-import { config } from './config.ts'
+import { config } from './config.js'
 
 const port = Number(config.REDIS_PORT)
 

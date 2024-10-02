@@ -4,8 +4,8 @@ import {
   getRandomMap,
   getRandomStandardItem,
   getUpdatedAtDate,
-} from '../services/itemsService.ts'
-import { ItemObject, ObjectKeys, RigTypes } from '../types.ts'
+} from '../services/itemsService.js'
+import { ItemObject, ObjectKeys, RigTypes } from '../types.js'
 const itemsRouter = express.Router()
 
 itemsRouter.get('/getRandomItems', async (_req, res) => {

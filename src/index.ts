@@ -1,13 +1,8 @@
-import app from './app.ts'
-import { config } from './config/config.ts'
-import { runAtInterval } from './jobs/fetchDataJob.ts'
+import app from './app.js'
+import { config } from './config/config.js'
 
 const port = config.PORT
-app.listen(port, async () => {
+
+app.listen(port, () => {
   console.log(`Running on port ${port}`)
-  try {
-    runAtInterval(10)
-  } catch (error) {
-    console.error('Error fetching data:', error)
-  }
 })

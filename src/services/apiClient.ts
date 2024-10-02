@@ -1,21 +1,23 @@
-import { GraphQLClient } from 'graphql-request'
-import { GET_DATA } from './queries.ts'
-import { config } from '../config/config.ts'
-import { DataObject } from '../types.ts'
+import { GET_DATA } from './queries.js'
 import {
   getValidStandard,
   getValidChestrigs,
   getValidHeadphones,
   getValidMaps,
   getValidSecondaries,
-} from './helpers.ts'
+} from './helpers.js'
 import { format } from 'date-fns'
+import { config } from '../config/config.js'
+import { DataObject } from '../types.js'
 
-const endpoint = config.GRAPHQL_URL
+import { GraphQLClient } from 'graphql-request'
 
-const GQLClient = new GraphQLClient(endpoint as string)
+const endpoint = config.GRAPHQL_URL as string
+
+const client = new GraphQLClient(endpoint)
+
 export const fetchData = async () => {
-  const data = await GQLClient.request<DataObject>(GET_DATA)
+  const data = await client.request<DataObject>(GET_DATA)
   const dataObject = {
     primaries: getValidStandard(data.primaries),
     secondaries: getValidSecondaries(data.secondaries),

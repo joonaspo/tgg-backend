@@ -1,4 +1,4 @@
-import client from '../config/redisConfig.ts'
+import client from '../config/redisConfig.js'
 
 export const setCache = async (key: string, value: unknown) => {
   try {

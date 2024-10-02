@@ -1,7 +1,7 @@
-import client from '../config/redisConfig.ts'
-import { fetchData } from '../services/apiClient.ts'
-import { setCache } from '../services/cacheService.ts'
-import { ObjectKeys } from '../types.ts'
+import client from '../config/redisConfig.js'
+import { fetchData } from '../services/apiClient.js'
+import { setCache } from '../services/cacheService.js'
+import { ObjectKeys } from '../types.js'
 
 const runJob = async () => {
   try {

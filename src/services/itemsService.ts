@@ -1,6 +1,6 @@
-import client from '../config/redisConfig.ts'
-import { ChestRigObject, ItemObject, MapObject, ObjectKeys } from '../types.ts'
-import { randomIndexFromArray } from './helpers.ts'
+import client from '../config/redisConfig.js'
+import { ChestRigObject, ItemObject, MapObject, ObjectKeys } from '../types.js'
+import { randomIndexFromArray } from './helpers.js'
 
 export const getRandomMap = async () => {
   try {
