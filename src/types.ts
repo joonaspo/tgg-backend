@@ -2,6 +2,10 @@ export interface MapObject {
   name: string
 }
 
+export interface MapObjectWithIDs extends MapObject {
+  id: number
+}
+
 export interface ItemObject {
   name: string
   image512pxLink: string //^https:\/\/assets\.tarkov\.dev\/[a-f0-9]{24}-\d+\.webp$
