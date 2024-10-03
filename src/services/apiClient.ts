@@ -6,7 +6,6 @@ import {
   getValidMaps,
   getValidSecondaries,
 } from './helpers.js'
-import { format } from 'date-fns'
 import { config } from '../config/config.js'
 import { DataObject } from '../types.js'
 
@@ -17,6 +16,7 @@ const endpoint = config.GRAPHQL_URL as string
 const client = new GraphQLClient(endpoint)
 
 export const fetchData = async () => {
+  const date = new Date()
   const data = await client.request<DataObject>(GET_DATA)
   const dataObject = {
     primaries: getValidStandard(data.primaries),
@@ -26,7 +26,7 @@ export const fetchData = async () => {
     chestrigs: getValidChestrigs(data.chestrigs),
     headwear: getValidStandard(data.headwear),
     headphones: getValidHeadphones(data.headphones),
-    updatedAt: format(new Date(), 'HH-mm-ss-dd-MM-yyyy'),
+    updatedAt: date.toString(),
   }
 
   return dataObject

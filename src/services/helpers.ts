@@ -1,4 +1,10 @@
-import { ChestRigObject, ItemObject, MapObject, RigTypes } from '../types.js'
+import {
+  ChestRigObject,
+  ItemObject,
+  MapObject,
+  MapObjectWithIDs,
+  RigTypes,
+} from '../types.js'
 
 export const randomIndexFromArray = (
   array: MapObject[] | ItemObject[] | ChestRigObject[]
@@ -7,11 +13,14 @@ export const randomIndexFromArray = (
   return array[index]
 }
 
-export const getValidMaps = (maps: MapObject[]): MapObject[] => {
+export const getValidMaps = (maps: MapObject[]): MapObjectWithIDs[] => {
   const data = maps.filter((map) => {
     return map.name !== 'Night Factory' && map.name !== 'Ground Zero 21+'
   })
-  return data
+  const mapObjects = data.map((map, index) => {
+    return { name: map.name, id: index + 1 } as MapObjectWithIDs
+  })
+  return mapObjects
 }
 
 export const getValidStandard = (items: ItemObject[]): ItemObject[] => {
